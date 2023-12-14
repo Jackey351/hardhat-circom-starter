@@ -5,6 +5,7 @@ import { plonk } from "snarkjs";
 export class Circuit {
 	circuit: string;
 	wasmPath: string;
+	wasmInstancePath: string;
 	zkeyPath: string;
 	vkey: any;
 
@@ -15,6 +16,7 @@ export class Circuit {
 		);
 		this.zkeyPath = resolve(__dirname, `../build/circuits/${circuit}/${circuit}.zkey`);
 		this.wasmPath = resolve(__dirname, `../build/circuits/${circuit}/${circuit}.wasm`);
+		this.wasmInstancePath = resolve(__dirname, `../build/circuits/${circuit}/${circuit}.js`);
 	}
 
 	async generateProof(inputs: any): Promise<any> {
